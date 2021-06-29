@@ -1,0 +1,30 @@
+[package]
+name = "single_byte_hashmap"
+version = "0.1.0"
+authors = ["William Batista <bootlegbilly@protonmail.ch>"]
+edition = "2018"
+
+[features]
+default = ["faster_hashmap"]
+
+faster_hashmap = [
+    "hashbrown",
+]
+
+rayon = [
+    "faster_hashmap",
+    "hashbrown/rayon",
+]
+
+nightly = [
+    "faster_hashmap",
+    "hashbrown/nightly",
+]
+
+serde = [
+    "faster_hashmap",
+    "hashbrown/serde",
+]
+
+[dependencies]
+hashbrown = { version = "0.11", default-features = false, features = ["inline-more"], optional = true}
