@@ -50,6 +50,7 @@ impl OtherHasher for Hasher {
     #[inline]
     fn write(&mut self, bytes: &[u8]) {
         // This hasher is ONLY safe for comparing singular bytes, and nothing else
+        #[cfg(not(feature = "allow_unsafe_sizes"))]
         debug_assert!(bytes.len() == 1);
 
         *self = Hasher(*bytes.first().unwrap() as u64);

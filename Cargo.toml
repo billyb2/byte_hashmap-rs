@@ -28,6 +28,8 @@ nightly = [
     "hashbrown/nightly",
 ]
 
+allow_unsafe_sizes = []
+
 serde = [
     "faster_hashmap",
     "hashbrown/serde",
